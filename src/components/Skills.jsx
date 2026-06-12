@@ -42,7 +42,6 @@ const skillCategories = [
             { name: "Node.js", level: 70, icon: <SiNodedotjs className="text-green-500" /> },
             { name: "Express.js", level: 65, icon: <SiExpress className="text-gray-500 dark:text-gray-300" /> },
             { name: "Python", level: 50, icon: <SiPython className="text-blue-500" /> },
-            { name: "Java", level: 50, icon: <FaJava className="text-red-600" /> },
             { name: "C / C++", level: 50, icon: <SiCplusplus className="text-blue-600" /> },
         ],
     },
@@ -65,10 +64,9 @@ const skillCategories = [
         color: "from-green-500 to-emerald-500",
         bg: "bg-green-50 dark:bg-green-900/20",
         skills: [
-            { name: "MySQL", level: 50, icon: <SiMysql className="text-blue-700" /> },
-            { name: "PostgreSQL", level: 50, icon: <SiPostgresql className="text-sky-600" /> },
+            { name: "MySQL", level: 70, icon: <SiMysql className="text-blue-700" /> },
             { name: "MongoDB", level: 50, icon: <SiMongodb className="text-green-600" /> },
-            { name: "Firebase", level: 50, icon: <SiFirebase className="text-yellow-500" /> },
+            { name: "Firebase", level: 60, icon: <SiFirebase className="text-yellow-500" /> },
         ],
     },
     {
@@ -79,7 +77,6 @@ const skillCategories = [
         bg: "bg-orange-50 dark:bg-orange-900/20",
         skills: [
             { name: "Git & GitHub", level: 70, icon: <SiGithub /> },
-            { name: "API Integration", level: 65, icon: <SiApollographql className="text-purple-500" /> },
             { name: "Vercel", level: 75, icon: <SiVercel /> },
         ],
     },

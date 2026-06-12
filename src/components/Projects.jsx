@@ -17,8 +17,8 @@ const projectsData = [
         image: "/projects/ridesmart.jpg",
         tech: ["React", "Tailwind", "Node.js", "REST API"],
         category: "fullstack",
-        github: "https://github.com/",
-        live: null, // demo unavailable
+        github: "https://github.com/sasinduLakshan12/Bus-Booking-System",
+        live: null,
     },
     {
         title: "Personal Portfolio Website",
@@ -27,18 +27,18 @@ const projectsData = [
         image: "/projects/portfolio.jpg",
         tech: ["React", "Tailwind", "Framer Motion"],
         category: "frontend",
-        github: "https://github.com/",
-        live: "https://my-professional-port-folio.vercel.app/", // ✅ YOUR REAL PORTFOLIO LINK
+        github: "https://github.com/sasinduLakshan12/My-Professional-Port-Folio",
+        live: "https://my-professional-port-folio.vercel.app/",
     },
     {
-        title: "Weather App (Python + API)",
+        title: "IT Center Management System",
         description:
-            "A weather forecasting application built using Python and external APIs with real-time data.",
-        image: "/projects/whether.jpg",
-        tech: ["Python", "API", "Flask"],
-        category: "backend",
-        github: "https://github.com/Sasindu-Lakshn/Simple-Python-Whether-App",
-        live: "https://simple-python-whether-app.vercel.app/",
+            "A comprehensive management system for IT centers, streamlining student registrations, course management, and administrative tasks.",
+        image: "/projects/ITCenter.png",
+        tech: ["React", "Node.js", "Express", "MongoDB"],
+        category: "fullstack",
+        github: "https://github.com/sasinduLakshan12/IT-Center-Management-System",
+        live: null,
     },
 ]
 
@@ -149,12 +149,6 @@ const Projects = () => {
                                     alt={project.title}
                                     className="w-full h-full object-cover group-hover:scale-110 transition duration-500"
                                 />
-
-                                {!project.live && (
-                                    <span className="absolute top-3 right-3 text-xs px-3 py-1 rounded-full bg-black/70 text-white">
-                                        Demo Unavailable
-                                    </span>
-                                )}
                             </div>
 
                             {/* CONTENT */}

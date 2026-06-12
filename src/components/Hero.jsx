@@ -100,7 +100,7 @@ const Home = () => {
                         focused on building modern, scalable and user-friendly web
                         applications using{" "}
                         <span className="text-blue-600 dark:text-blue-400 font-medium">
-                            React, Tailwind CSS, Node.js
+                            Next.js,React, Tailwind CSS, Node.js
                         </span>{" "}
                         and APIs.
                     </p>
