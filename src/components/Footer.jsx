@@ -1,5 +1,4 @@
 import { motion } from "framer-motion"
-import UniversityLogo from "../assets/university-logo.png"
 
 import {
     Github,
@@ -86,15 +85,9 @@ const Footer = () => {
                             </p>
 
                             {/* UNIVERSITY */}
-                            <div className="flex items-center justify-center md:justify-start gap-3">
-                                <img
-                                    src={UniversityLogo}
-                                    alt="University of Vavuniya Logo"
-                                    className="h-8 w-auto object-contain"
-                                />
-                                <span className="text-sm text-gray-600 dark:text-gray-400">
-                                    University of Vavuniya
-                                </span>
+                            <div className="flex items-center justify-center md:justify-start gap-3 text-gray-700 dark:text-gray-300 font-medium">
+                                <GraduationCap size={22} className="text-blue-600" />
+                                <span>University of Vavuniya</span>
                             </div>
 
                         </div>

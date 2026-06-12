@@ -137,7 +137,7 @@ const About = () => {
                             <div className="bg-white/80 dark:bg-gray-900/70 backdrop-blur-xl rounded-3xl p-6 shadow-lg">
                                 <Code2 className="text-blue-600 mb-3" />
                                 <h3 className="text-2xl font-bold">
-                                    <Counter value={10} suffix="+" trigger={animate} />
+                                    <Counter value={3} suffix="+" trigger={animate} />
                                 </h3>
                                 <p className="text-gray-600 dark:text-gray-400 text-sm">Projects</p>
                             </div>
