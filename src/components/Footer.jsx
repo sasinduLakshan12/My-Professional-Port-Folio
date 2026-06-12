@@ -133,7 +133,7 @@ const Footer = () => {
                                 <motion.a
                                     variants={iconHover}
                                     whileHover="hover"
-                                    href="https://github.com/"
+                                    href="https://github.com/sasinduLakshan12"
                                     target="_blank"
                                     className="hover:text-black dark:hover:text-white"
                                 >
