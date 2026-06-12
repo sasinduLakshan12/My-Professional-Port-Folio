@@ -1,12 +1,43 @@
+import { useState } from "react"
 import { motion } from "framer-motion"
 import { Mail, Send } from "lucide-react"
 import { FaGithub, FaLinkedin } from "react-icons/fa"
 
 const Contact = () => {
+    const [result, setResult] = useState("");
+    const [isSubmitting, setIsSubmitting] = useState(false);
 
-    const handleSubmit = (e) => {
-        e.preventDefault()
-        alert("Thank you! Your message has been sent 🚀")
+    const handleSubmit = async (e) => {
+        e.preventDefault();
+        setIsSubmitting(true);
+        setResult("Sending...");
+
+        const formData = new FormData(e.target);
+        formData.append("access_key", "c15a357e-0771-4303-a506-ab360ee75732");
+
+        try {
+            const response = await fetch("https://api.web3forms.com/submit", {
+                method: "POST",
+                body: formData
+            });
+
+            const data = await response.json();
+
+            if (data.success) {
+                setResult("Thank you! Your message has been sent 🚀");
+                e.target.reset();
+            } else {
+                console.log("Error", data);
+                setResult(data.message);
+            }
+        } catch (error) {
+            console.log("Error", error);
+            setResult("An error occurred while sending.");
+        }
+        
+        setIsSubmitting(false);
+        // Clear success message after 5 seconds
+        setTimeout(() => setResult(""), 5000);
     }
 
     return (
@@ -129,6 +160,7 @@ const Contact = () => {
                         <form onSubmit={handleSubmit} className="space-y-5">
                             <input
                                 type="text"
+                                name="name"
                                 placeholder="Your Name"
                                 className="
                   w-full px-4 py-3 rounded-xl
@@ -140,6 +172,7 @@ const Contact = () => {
 
                             <input
                                 type="email"
+                                name="email"
                                 placeholder="Your Email"
                                 className="
                   w-full px-4 py-3 rounded-xl
@@ -150,6 +183,7 @@ const Contact = () => {
                             />
 
                             <textarea
+                                name="message"
                                 placeholder="Your Message"
                                 rows="5"
                                 className="
@@ -162,18 +196,24 @@ const Contact = () => {
 
                             <button
                                 type="submit"
-                                className="
+                                disabled={isSubmitting}
+                                className={`
                   w-full inline-flex items-center justify-center gap-2
-                  bg-blue-600 hover:bg-blue-700
+                  ${isSubmitting ? 'bg-blue-400 cursor-not-allowed' : 'bg-blue-600 hover:bg-blue-700 hover:scale-[1.02]'}
                   text-white font-medium
                   py-3 rounded-xl
                   shadow-lg shadow-blue-600/30
-                  hover:scale-[1.02]
                   transition
-                "
+                `}
                             >
-                                Send Message <Send size={18} />
+                                {isSubmitting ? "Sending..." : "Send Message"} <Send size={18} />
                             </button>
+                            
+                            {result && (
+                                <div className="text-center text-sm font-medium text-green-600 dark:text-green-400 mt-3 p-3 bg-green-50 dark:bg-green-900/20 rounded-xl">
+                                    {result}
+                                </div>
+                            )}
                         </form>
 
                     </div>
