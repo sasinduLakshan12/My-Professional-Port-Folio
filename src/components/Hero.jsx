@@ -10,6 +10,7 @@ import {
     Server,
 } from "lucide-react"
 import { useTypewriter, Cursor } from "react-simple-typewriter"
+import cvFile from "../assets/Sasindu-Lakshan-CV.pdf"
 
 const Home = () => {
     const [text] = useTypewriter({
@@ -140,20 +141,20 @@ const Home = () => {
                         </a>
 
                         <a
-                            href="/Sasindu-Lakshan-CV.pdf"
-                            download
+                            href={cvFile}
+                            download="Sasindu-Lakshan-CV.pdf"
                             className="
-                inline-flex items-center gap-2
-                px-7 py-3 rounded-2xl
-                border border-gray-300 dark:border-gray-700
-                text-gray-800 dark:text-gray-200
-                hover:bg-gray-100 dark:hover:bg-gray-800
-                hover:scale-[1.03]
-                transition
-              "
+                                inline-flex items-center gap-2
+                                px-7 py-3 rounded-2xl
+                                border border-gray-300 dark:border-gray-700
+                                text-gray-800 dark:text-gray-200
+                                hover:bg-gray-100 dark:hover:bg-gray-800
+                                hover:scale-[1.03]
+                                transition
+                            "
                         >
                             Download CV <Download size={18} />
-                        </a>
+</a>
                     </div>
 
                     {/* SOCIAL LINKS */}
