@@ -175,35 +175,83 @@ const Home = () => {
                     </div>
                 </motion.div>
 
-                {/* RIGHT PROFILE AREA */}
+                {/* RIGHT PROFILE AREA / CODE TERMINAL MOCKUP */}
                 <motion.div
                     initial={{ opacity: 0, scale: 0.9 }}
                     animate={{ opacity: 1, scale: 1 }}
                     transition={{ duration: 0.8, delay: 0.2 }}
                     className="hidden lg:flex justify-center lg:col-span-5 relative"
                 >
-                    <div className="relative w-80 h-80 xl:w-96 xl:h-96">
+                    <div className="relative w-full max-w-md">
                         {/* Glow effect background */}
-                        <div className="absolute -inset-4 rounded-full bg-gradient-to-tr from-blue-500 via-indigo-500 to-purple-600 blur-2xl opacity-30 animate-pulse" />
+                        <div className="absolute -inset-4 rounded-3xl bg-gradient-to-tr from-blue-500 via-indigo-500 to-purple-600 blur-2xl opacity-20 dark:opacity-30" />
                         
-                        {/* Outer rotating ring */}
-                        <div className="absolute -inset-1.5 rounded-full bg-gradient-to-tr from-blue-600 via-purple-600 to-indigo-600 animate-spin-slow opacity-80" />
-                        
-                        {/* Inner profile image container */}
-                        <div className="absolute inset-0 rounded-full bg-white dark:bg-gray-950 p-2 shadow-2xl">
-                            <img
-                                src={profileImg}
-                                alt="Sasindu Lakshan"
-                                className="w-full h-full rounded-full object-cover"
-                            />
+                        {/* Terminal Box */}
+                        <div className="
+                            relative w-full rounded-2xl
+                            bg-slate-950/90 dark:bg-black/80
+                            backdrop-blur-xl
+                            border border-slate-800/80 dark:border-gray-800/80
+                            shadow-2xl overflow-hidden
+                            font-mono text-sm leading-relaxed
+                        ">
+                            {/* Window Header */}
+                            <div className="flex items-center justify-between px-4 py-3 bg-slate-900/80 border-b border-slate-800/60">
+                                <div className="flex gap-1.5">
+                                    <div className="w-3 h-3 rounded-full bg-red-500/90" />
+                                    <div className="w-3 h-3 rounded-full bg-yellow-500/90" />
+                                    <div className="w-3 h-3 rounded-full bg-green-500/90" />
+                                </div>
+                                <span className="text-xs text-slate-400 font-medium">developer.js</span>
+                                <div className="w-12" /> {/* Spacer */}
+                            </div>
+
+                            {/* Window Content */}
+                            <div className="p-6 text-left space-y-2 text-slate-300">
+                                <div>
+                                    <span className="text-pink-500">const</span>{" "}
+                                    <span className="text-blue-400">developer</span> = {"{"}
+                                </div>
+                                <div className="pl-4">
+                                    <span className="text-slate-400">name:</span>{" "}
+                                    <span className="text-amber-300">"Sasindu Lakshan"</span>,
+                                </div>
+                                <div className="pl-4">
+                                    <span className="text-slate-400">role:</span>{" "}
+                                    <span className="text-amber-300">"Full Stack Developer"</span>,
+                                </div>
+                                <div className="pl-4">
+                                    <span className="text-slate-400">skills:</span> [
+                                </div>
+                                <div className="pl-8">
+                                    <span className="text-amber-300">"React"</span>,{" "}
+                                    <span className="text-amber-300">"Node.js"</span>,
+                                </div>
+                                <div className="pl-8">
+                                    <span className="text-amber-300">"TailwindCSS"</span>,{" "}
+                                    <span className="text-amber-300">"Next.js"</span>
+                                </div>
+                                <div className="pl-4">
+                                    ],
+                                </div>
+                                <div className="pl-4">
+                                    <span className="text-slate-400">hardWorker:</span>{" "}
+                                    <span className="text-orange-400">true</span>,
+                                </div>
+                                <div className="pl-4">
+                                    <span className="text-slate-400">passionate:</span>{" "}
+                                    <span className="text-orange-400">true</span>
+                                </div>
+                                <div>{"}"}</div>
+                            </div>
                         </div>
 
                         {/* Floating Tech Badges */}
                         {/* React Badge */}
                         <motion.div
-                            animate={{ y: [0, -12, 0] }}
+                            animate={{ y: [0, -10, 0] }}
                             transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
-                            className="absolute -top-2 -left-2 bg-white/90 dark:bg-gray-900/90 backdrop-blur-md p-3 rounded-2xl shadow-xl border border-gray-200/50 dark:border-gray-800/50 flex items-center gap-2"
+                            className="absolute -top-4 -left-4 bg-white/90 dark:bg-gray-900/90 backdrop-blur-md p-3 rounded-2xl shadow-xl border border-gray-200/50 dark:border-gray-800/50 flex items-center gap-2"
                         >
                             <FaReact className="text-cyan-500 text-xl animate-spin-slow" />
                             <span className="text-xs font-semibold text-gray-800 dark:text-gray-200">React</span>
@@ -211,9 +259,9 @@ const Home = () => {
 
                         {/* Node Badge */}
                         <motion.div
-                            animate={{ y: [0, 12, 0] }}
+                            animate={{ y: [0, 10, 0] }}
                             transition={{ duration: 4.5, repeat: Infinity, ease: "easeInOut" }}
-                            className="absolute -bottom-2 -right-2 bg-white/90 dark:bg-gray-900/90 backdrop-blur-md p-3 rounded-2xl shadow-xl border border-gray-200/50 dark:border-gray-800/50 flex items-center gap-2"
+                            className="absolute -bottom-4 -right-4 bg-white/90 dark:bg-gray-900/90 backdrop-blur-md p-3 rounded-2xl shadow-xl border border-gray-200/50 dark:border-gray-800/50 flex items-center gap-2"
                         >
                             <FaNodeJs className="text-green-500 text-xl" />
                             <span className="text-xs font-semibold text-gray-800 dark:text-gray-200">Node.js</span>
@@ -221,9 +269,9 @@ const Home = () => {
 
                         {/* Tailwind Badge */}
                         <motion.div
-                            animate={{ x: [0, 10, 0] }}
+                            animate={{ x: [0, 8, 0] }}
                             transition={{ duration: 5, repeat: Infinity, ease: "easeInOut" }}
-                            className="absolute top-1/2 -right-10 -translate-y-1/2 bg-white/90 dark:bg-gray-900/90 backdrop-blur-md p-3 rounded-2xl shadow-xl border border-gray-200/50 dark:border-gray-800/50 flex items-center gap-2"
+                            className="absolute top-1/2 -right-8 -translate-y-1/2 bg-white/90 dark:bg-gray-900/90 backdrop-blur-md p-3 rounded-2xl shadow-xl border border-gray-200/50 dark:border-gray-800/50 flex items-center gap-2"
                         >
                             <SiTailwindcss className="text-sky-400 text-lg" />
                             <span className="text-xs font-semibold text-gray-800 dark:text-gray-200">Tailwind</span>
