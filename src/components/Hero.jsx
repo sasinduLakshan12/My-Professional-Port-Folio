@@ -11,6 +11,9 @@ import {
 } from "lucide-react"
 import { useTypewriter, Cursor } from "react-simple-typewriter"
 import cvFile from "../assets/Sasindu-Lakshan-CV.pdf"
+import profileImg from "../assets/Profile.jpg"
+import { FaReact, FaNodeJs } from "react-icons/fa"
+import { SiTailwindcss } from "react-icons/si"
 
 const Home = () => {
     const [text] = useTypewriter({
@@ -41,25 +44,19 @@ const Home = () => {
             <div className="absolute -top-40 -left-40 w-96 h-96 bg-blue-500/20 rounded-full blur-3xl" />
             <div className="absolute top-1/2 -right-40 w-96 h-96 bg-purple-500/20 rounded-full blur-3xl" />
 
-            <div className="relative z-10 max-w-7xl mx-auto px-6 grid lg:grid-cols-2 gap-12 items-center">
+            <div className="relative z-10 max-w-7xl mx-auto px-6 grid lg:grid-cols-12 gap-12 lg:gap-8 items-center w-full">
 
                 {/* LEFT CONTENT */}
                 <motion.div
                     initial={{ opacity: 0, y: 40 }}
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ duration: 0.8 }}
-                    className="space-y-8"
+                    className="space-y-6 lg:col-span-7"
                 >
                     {/* NAME + OPEN TO WORK */}
-                    <div className="flex items-center gap-4 flex-wrap">
-                        <h1 className="text-5xl sm:text-6xl xl:text-7xl font-extrabold leading-tight">
-                            Hi, I’m{" "}
-                            <span className="bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">
-                                Sasindu Lakshan
-                            </span>
-                        </h1>
-
+                    <div className="flex flex-col gap-4">
                         <span className="
+              self-start
               inline-flex items-center gap-2
               px-4 py-1.5 rounded-full
               bg-green-100 dark:bg-green-900/30
@@ -73,6 +70,13 @@ const Home = () => {
                             </span>
                             Open to Work
                         </span>
+
+                        <h1 className="text-5xl sm:text-6xl xl:text-7xl font-extrabold leading-tight">
+                            Hi, I’m{" "}
+                            <span className="bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">
+                                Sasindu Lakshan
+                            </span>
+                        </h1>
                     </div>
 
                     {/* TYPING ROLE – MOVED DOWN */}
@@ -101,7 +105,7 @@ const Home = () => {
                         focused on building modern, scalable and user-friendly web
                         applications using{" "}
                         <span className="text-blue-600 dark:text-blue-400 font-medium">
-                            Next.js,React, Tailwind CSS, Node.js
+                            Next.js, React, Tailwind CSS, Node.js
                         </span>{" "}
                         and APIs.
                     </p>
@@ -154,7 +158,7 @@ const Home = () => {
                             "
                         >
                             Download CV <Download size={18} />
-</a>
+                        </a>
                     </div>
 
                     {/* SOCIAL LINKS */}
@@ -171,18 +175,60 @@ const Home = () => {
                     </div>
                 </motion.div>
 
-                {/* RIGHT DECOR */}
+                {/* RIGHT PROFILE AREA */}
                 <motion.div
                     initial={{ opacity: 0, scale: 0.9 }}
                     animate={{ opacity: 1, scale: 1 }}
-                    transition={{ duration: 0.8 }}
-                    className="hidden lg:flex justify-center"
+                    transition={{ duration: 0.8, delay: 0.2 }}
+                    className="hidden lg:flex justify-center lg:col-span-5 relative"
                 >
-                    <div className="
-            relative w-80 h-80 rounded-full
-            bg-gradient-to-r from-blue-500 to-purple-600
-            blur-2xl opacity-40
-          " />
+                    <div className="relative w-80 h-80 xl:w-96 xl:h-96">
+                        {/* Glow effect background */}
+                        <div className="absolute -inset-4 rounded-full bg-gradient-to-tr from-blue-500 via-indigo-500 to-purple-600 blur-2xl opacity-30 animate-pulse" />
+                        
+                        {/* Outer rotating ring */}
+                        <div className="absolute -inset-1.5 rounded-full bg-gradient-to-tr from-blue-600 via-purple-600 to-indigo-600 animate-spin-slow opacity-80" />
+                        
+                        {/* Inner profile image container */}
+                        <div className="absolute inset-0 rounded-full bg-white dark:bg-gray-950 p-2 shadow-2xl">
+                            <img
+                                src={profileImg}
+                                alt="Sasindu Lakshan"
+                                className="w-full h-full rounded-full object-cover"
+                            />
+                        </div>
+
+                        {/* Floating Tech Badges */}
+                        {/* React Badge */}
+                        <motion.div
+                            animate={{ y: [0, -12, 0] }}
+                            transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
+                            className="absolute -top-2 -left-2 bg-white/90 dark:bg-gray-900/90 backdrop-blur-md p-3 rounded-2xl shadow-xl border border-gray-200/50 dark:border-gray-800/50 flex items-center gap-2"
+                        >
+                            <FaReact className="text-cyan-500 text-xl animate-spin-slow" />
+                            <span className="text-xs font-semibold text-gray-800 dark:text-gray-200">React</span>
+                        </motion.div>
+
+                        {/* Node Badge */}
+                        <motion.div
+                            animate={{ y: [0, 12, 0] }}
+                            transition={{ duration: 4.5, repeat: Infinity, ease: "easeInOut" }}
+                            className="absolute -bottom-2 -right-2 bg-white/90 dark:bg-gray-900/90 backdrop-blur-md p-3 rounded-2xl shadow-xl border border-gray-200/50 dark:border-gray-800/50 flex items-center gap-2"
+                        >
+                            <FaNodeJs className="text-green-500 text-xl" />
+                            <span className="text-xs font-semibold text-gray-800 dark:text-gray-200">Node.js</span>
+                        </motion.div>
+
+                        {/* Tailwind Badge */}
+                        <motion.div
+                            animate={{ x: [0, 10, 0] }}
+                            transition={{ duration: 5, repeat: Infinity, ease: "easeInOut" }}
+                            className="absolute top-1/2 -right-10 -translate-y-1/2 bg-white/90 dark:bg-gray-900/90 backdrop-blur-md p-3 rounded-2xl shadow-xl border border-gray-200/50 dark:border-gray-800/50 flex items-center gap-2"
+                        >
+                            <SiTailwindcss className="text-sky-400 text-lg" />
+                            <span className="text-xs font-semibold text-gray-800 dark:text-gray-200">Tailwind</span>
+                        </motion.div>
+                    </div>
                 </motion.div>
 
             </div>
