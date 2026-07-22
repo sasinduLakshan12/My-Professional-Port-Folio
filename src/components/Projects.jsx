@@ -38,7 +38,7 @@ const projectsData = [
         tech: ["React", "Node.js", "Express", "MongoDB"],
         category: "fullstack",
         github: "https://github.com/sasinduLakshan12/IT-Center-Management-System",
-        live: null,
+        live: "https://it-center-frontend.vercel.app",
     },
 ]
 
