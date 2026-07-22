@@ -166,10 +166,10 @@ const Home = () => {
                         <a href="https://github.com/sasinduLakshan12" target="_blank" className="hover:text-black dark:hover:text-white transition">
                             <Github />
                         </a>
-                        <a href="https://linkedin.com/" target="_blank" className="hover:text-blue-600 transition">
+                        <a href="https://www.linkedin.com/in/sasindu-lakshan-5b404933a/" target="_blank" className="hover:text-blue-600 transition">
                             <Linkedin />
                         </a>
-                        <a href="mailto:youremail@gmail.com" className="hover:text-red-500 transition">
+                        <a href="mailto:sasindu125lakshan@gmail.com" className="hover:text-red-500 transition">
                             <Mail />
                         </a>
                     </div>
