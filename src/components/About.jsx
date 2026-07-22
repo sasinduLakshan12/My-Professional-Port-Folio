@@ -5,7 +5,8 @@ import {
     FaReact,
     FaJsSquare,
     FaGitAlt,
-    FaNodeJs
+    FaNodeJs,
+    FaGithub
 } from "react-icons/fa"
 import { SiTailwindcss, SiMysql } from "react-icons/si"
 import profileImg from "../assets/Profile.jpg"
@@ -39,6 +40,21 @@ const Counter = ({ value, suffix = "", trigger }) => {
 
 const About = () => {
     const [animate, setAnimate] = useState(false)
+    const [githubStats, setGithubStats] = useState({ repos: 3, followers: 0 })
+
+    useEffect(() => {
+        fetch("https://api.github.com/users/sasinduLakshan12")
+            .then(res => res.json())
+            .then(data => {
+                if (data.public_repos !== undefined) {
+                    setGithubStats({
+                        repos: data.public_repos,
+                        followers: data.followers
+                    })
+                }
+            })
+            .catch(err => console.error("GitHub fetch error:", err))
+    }, [])
 
     return (
         <section
@@ -132,9 +148,9 @@ const About = () => {
                             onViewportEnter={() => setAnimate(true)}
                             viewport={{ once: true }}
                             transition={{ duration: 0.6 }}
-                            className="grid grid-cols-1 sm:grid-cols-3 gap-6"
+                            className="grid grid-cols-2 gap-6"
                         >
-                            <div className="bg-white/80 dark:bg-gray-900/70 backdrop-blur-xl rounded-3xl p-6 shadow-lg">
+                            <div className="bg-white/80 dark:bg-gray-900/70 backdrop-blur-xl rounded-3xl p-6 shadow-lg border border-gray-200/30 dark:border-gray-800/30">
                                 <Code2 className="text-blue-600 mb-3" />
                                 <h3 className="text-2xl font-bold">
                                     <Counter value={3} suffix="+" trigger={animate} />
@@ -142,7 +158,7 @@ const About = () => {
                                 <p className="text-gray-600 dark:text-gray-400 text-sm">Projects</p>
                             </div>
 
-                            <div className="bg-white/80 dark:bg-gray-900/70 backdrop-blur-xl rounded-3xl p-6 shadow-lg">
+                            <div className="bg-white/80 dark:bg-gray-900/70 backdrop-blur-xl rounded-3xl p-6 shadow-lg border border-gray-200/30 dark:border-gray-800/30">
                                 <Briefcase className="text-purple-600 mb-3" />
                                 <h3 className="text-2xl font-bold">
                                     <Counter value={3} suffix="+" trigger={animate} />
@@ -150,13 +166,27 @@ const About = () => {
                                 <p className="text-gray-600 dark:text-gray-400 text-sm">Years Learning</p>
                             </div>
 
-                            <div className="bg-white/80 dark:bg-gray-900/70 backdrop-blur-xl rounded-3xl p-6 shadow-lg">
+                            <div className="bg-white/80 dark:bg-gray-900/70 backdrop-blur-xl rounded-3xl p-6 shadow-lg border border-gray-200/30 dark:border-gray-800/30">
                                 <Sparkles className="text-green-600 mb-3" />
                                 <h3 className="text-2xl font-bold">
                                     <Counter value={100} suffix="%" trigger={animate} />
                                 </h3>
                                 <p className="text-gray-600 dark:text-gray-400 text-sm">Passion</p>
                             </div>
+
+                            <a 
+                                href="https://github.com/sasinduLakshan12" 
+                                target="_blank" 
+                                rel="noreferrer"
+                                className="bg-white/80 dark:bg-gray-900/70 backdrop-blur-xl rounded-3xl p-6 shadow-lg border border-gray-200/30 dark:border-gray-800/30 hover:border-blue-500/30 dark:hover:border-blue-500/30 hover:scale-[1.03] transition-all block text-left"
+                            >
+                                <FaGithub className="text-gray-900 dark:text-white mb-3 text-2.5xl" />
+                                <h3 className="text-2xl font-bold flex items-baseline gap-1">
+                                    {githubStats.repos}
+                                    <span className="text-xs font-normal text-gray-500">repos</span>
+                                </h3>
+                                <p className="text-gray-600 dark:text-gray-400 text-sm">GitHub Live Stats</p>
+                            </a>
                         </motion.div>
 
                     </div>
