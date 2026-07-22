@@ -163,7 +163,7 @@ const Home = () => {
 
                     {/* SOCIAL LINKS */}
                     <div className="flex gap-6 pt-4 text-gray-600 dark:text-gray-400">
-                        <a href="https://github.com/" target="_blank" className="hover:text-black dark:hover:text-white transition">
+                        <a href="https://github.com/sasinduLakshan12" target="_blank" className="hover:text-black dark:hover:text-white transition">
                             <Github />
                         </a>
                         <a href="https://linkedin.com/" target="_blank" className="hover:text-blue-600 transition">

@@ -1,5 +1,5 @@
 import { useState } from "react"
-import { motion } from "framer-motion"
+import { motion, AnimatePresence } from "framer-motion"
 import {
     Github,
     ExternalLink,
@@ -124,79 +124,84 @@ const Projects = () => {
                 </p>
 
                 {/* GRID */}
-                <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-10">
-                    {filteredProjects.map((project, index) => (
-                        <motion.div
-                            key={index}
-                            initial={{ opacity: 0, y: 40 }}
-                            whileInView={{ opacity: 1, y: 0 }}
-                            viewport={{ once: true }}
-                            transition={{ duration: 0.5, delay: index * 0.1 }}
-                            className="
-                group rounded-3xl
-                bg-white/70 dark:bg-gray-900/70
-                backdrop-blur-xl
-                border border-gray-200/50 dark:border-gray-800
-                overflow-hidden
-                shadow-lg hover:shadow-2xl
-                transition
-              "
-                        >
-                            {/* IMAGE */}
-                            <div className="relative h-48 overflow-hidden">
-                                <img
-                                    src={project.image}
-                                    alt={project.title}
-                                    className="w-full h-full object-cover group-hover:scale-110 transition duration-500"
-                                />
-                            </div>
-
-                            {/* CONTENT */}
-                            <div className="p-6 space-y-4">
-                                <h3 className="text-xl font-bold text-gray-900 dark:text-white">
-                                    {project.title}
-                                </h3>
-
-                                <p className="text-sm text-gray-600 dark:text-gray-400 leading-relaxed">
-                                    {project.description}
-                                </p>
-
-                                {/* TECH */}
-                                <div className="flex flex-wrap gap-2">
-                                    {project.tech.map((tech, i) => (
-                                        <span
-                                            key={i}
-                                            className="px-3 py-1 text-xs font-medium rounded-full bg-blue-100 dark:bg-blue-900/30 text-blue-700 dark:text-blue-300"
-                                        >
-                                            {tech}
-                                        </span>
-                                    ))}
+                <motion.div layout className="grid md:grid-cols-2 lg:grid-cols-3 gap-10">
+                    <AnimatePresence mode="popLayout">
+                        {filteredProjects.map((project) => (
+                            <motion.div
+                                key={project.title}
+                                layout
+                                initial={{ opacity: 0, scale: 0.9 }}
+                                animate={{ opacity: 1, scale: 1 }}
+                                exit={{ opacity: 0, scale: 0.9 }}
+                                transition={{ duration: 0.4 }}
+                                className="
+                                    group rounded-3xl
+                                    bg-white/70 dark:bg-gray-900/70
+                                    backdrop-blur-xl
+                                    border border-gray-200/50 dark:border-gray-800
+                                    overflow-hidden
+                                    shadow-lg hover:shadow-2xl hover:shadow-blue-500/10 dark:hover:shadow-purple-500/10
+                                    hover:border-blue-500/30 dark:hover:border-purple-500/30
+                                    hover:-translate-y-2
+                                    transition-all duration-300
+                                "
+                            >
+                                {/* IMAGE */}
+                                <div className="relative h-48 overflow-hidden">
+                                    <img
+                                        src={project.image}
+                                        alt={project.title}
+                                        className="w-full h-full object-cover group-hover:scale-110 transition duration-500"
+                                    />
                                 </div>
 
-                                {/* LINKS */}
-                                <div className="flex items-center gap-6 pt-3">
-                                    <a
-                                        href={project.github}
-                                        target="_blank"
-                                        className="flex items-center gap-2 text-sm text-gray-700 dark:text-gray-300 hover:text-black dark:hover:text-white transition"
-                                    >
-                                        <Github size={18} /> Code
-                                    </a>
+                                {/* CONTENT */}
+                                <div className="p-6 space-y-4">
+                                    <h3 className="text-xl font-bold text-gray-900 dark:text-white">
+                                        {project.title}
+                                    </h3>
 
-                                    {project.live && (
+                                    <p className="text-sm text-gray-600 dark:text-gray-400 leading-relaxed">
+                                        {project.description}
+                                    </p>
+
+                                    {/* TECH */}
+                                    <div className="flex flex-wrap gap-2">
+                                        {project.tech.map((tech, i) => (
+                                            <span
+                                                key={i}
+                                                className="px-3 py-1 text-xs font-medium rounded-full bg-blue-100 dark:bg-blue-900/30 text-blue-700 dark:text-blue-300"
+                                            >
+                                                {tech}
+                                            </span>
+                                        ))}
+                                    </div>
+
+                                    {/* LINKS */}
+                                    <div className="flex items-center gap-6 pt-3">
                                         <a
-                                            href={project.live}
+                                            href={project.github}
                                             target="_blank"
-                                            className="flex items-center gap-2 text-sm text-blue-600 dark:text-blue-400 hover:underline"
+                                            className="flex items-center gap-2 text-sm text-gray-700 dark:text-gray-300 hover:text-black dark:hover:text-white transition"
                                         >
-                                            <ExternalLink size={18} /> Live
+                                            <Github size={18} /> Code
                                         </a>
-                                    )}
+
+                                        {project.live && (
+                                            <a
+                                                href={project.live}
+                                                target="_blank"
+                                                className="flex items-center gap-2 text-sm text-blue-600 dark:text-blue-400 hover:underline"
+                                            >
+                                                <ExternalLink size={18} /> Live
+                                            </a>
+                                        )}
+                                    </div>
                                 </div>
-                            </div>
-                        </motion.div>
-                    ))}
-                </div>
+                            </motion.div>
+                        ))}
+                    </AnimatePresence>
+                </motion.div>
             </div>
         </section>
     )
