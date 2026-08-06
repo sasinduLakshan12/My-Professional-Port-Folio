@@ -5,6 +5,7 @@ import Skills from "./components/Skills";
 import Projects from "./components/Projects";
 import Contact from "./components/Contact";
 import About from "./components/About";
+import Experience from "./components/Experience";
 import Footer from "./components/Footer";
 
 function App() {
@@ -18,12 +19,13 @@ function App() {
   return (
     <div className="relative overflow-x-hidden">
       <motion.div
-        className="fixed top-0 left-0 right-0 h-1 bg-gradient-to-r from-blue-600 to-purple-600 z-[9999] origin-left"
+        className="fixed top-0 left-0 right-0 h-1 bg-gradient-to-r from-cyan-400 to-teal-500 z-[9999] origin-left"
         style={{ scaleX }}
       />
       <Navbar />
       <Hero />
       <About />
+      <Experience />
       <Skills />
       <Projects />
       <Contact />

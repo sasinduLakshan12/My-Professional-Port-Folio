@@ -41,8 +41,8 @@ const Home = () => {
       "
         >
             {/* BACKGROUND GLOWS */}
-            <div className="absolute -top-40 -left-40 w-96 h-96 bg-blue-500/20 rounded-full blur-3xl" />
-            <div className="absolute top-1/2 -right-40 w-96 h-96 bg-purple-500/20 rounded-full blur-3xl" />
+            <div className="absolute -top-40 -left-40 w-[500px] h-[500px] bg-[radial-gradient(circle,rgba(6,182,212,0.12)_0%,transparent_70%)] rounded-full" />
+            <div className="absolute top-1/2 -right-40 w-[500px] h-[500px] bg-[radial-gradient(circle,rgba(20,184,166,0.12)_0%,transparent_70%)] rounded-full" />
 
             <div className="relative z-10 max-w-7xl mx-auto px-6 grid lg:grid-cols-12 gap-12 lg:gap-8 items-center w-full">
 

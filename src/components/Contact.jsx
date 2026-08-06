@@ -50,7 +50,7 @@ const Contact = () => {
       "
         >
             {/* BACKGROUND GLOW */}
-            <div className="absolute -top-40 left-1/2 -translate-x-1/2 w-[500px] h-[500px] bg-blue-500/10 blur-3xl rounded-full" />
+            <div className="absolute -top-40 left-1/2 -translate-x-1/2 w-[500px] h-[500px] bg-[radial-gradient(circle,rgba(6,182,212,0.08)_0%,transparent_70%)] rounded-full" />
 
             <div className="relative max-w-6xl mx-auto px-6">
                 <motion.div
@@ -59,8 +59,7 @@ const Contact = () => {
                     viewport={{ once: true }}
                     transition={{ duration: 0.6 }}
                     className="
-            bg-white/70 dark:bg-slate-900/40
-            backdrop-blur-xl
+            bg-white dark:bg-[#0C1220]
             rounded-3xl
             border border-slate-200/50 dark:border-white/5
             shadow-2xl

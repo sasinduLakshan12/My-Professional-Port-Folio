@@ -35,12 +35,12 @@ const skillCategories = [
         title: "Programming Languages",
         filter: "backend",
         icon: <Code size={24} />,
-        color: "from-purple-500 to-pink-500",
-        bg: "bg-purple-50 dark:bg-purple-900/20",
+        color: "from-cyan-500 to-teal-500",
+        bg: "bg-cyan-500/5 dark:bg-cyan-500/5",
         skills: [
             { name: "JavaScript", level: 70, icon: <SiJavascript className="text-yellow-500" /> },
             { name: "Node.js", level: 70, icon: <SiNodedotjs className="text-green-500" /> },
-            { name: "Express.js", level: 65, icon: <SiExpress className="text-gray-500 dark:text-gray-300" /> },
+            { name: "Express.js", level: 65, icon: <SiExpress className="text-slate-400" /> },
             { name: "Python", level: 50, icon: <SiPython className="text-blue-500" /> },
             { name: "C / C++", level: 50, icon: <SiCplusplus className="text-blue-600" /> },
         ],
@@ -49,8 +49,8 @@ const skillCategories = [
         title: "Web Development",
         filter: "frontend",
         icon: <Monitor size={24} />,
-        color: "from-blue-500 to-cyan-500",
-        bg: "bg-blue-50 dark:bg-blue-900/20",
+        color: "from-cyan-500 to-teal-500",
+        bg: "bg-cyan-500/5 dark:bg-cyan-500/5",
         skills: [
             { name: "HTML", level: 90, icon: <SiHtml5 className="text-orange-600" /> },
             { name: "CSS", level: 90, icon: <SiCss3 className="text-blue-600" /> },
@@ -61,8 +61,8 @@ const skillCategories = [
         title: "Databases",
         filter: "backend",
         icon: <Database size={24} />,
-        color: "from-green-500 to-emerald-500",
-        bg: "bg-green-50 dark:bg-green-900/20",
+        color: "from-cyan-500 to-teal-500",
+        bg: "bg-cyan-500/5 dark:bg-cyan-500/5",
         skills: [
             { name: "MySQL", level: 70, icon: <SiMysql className="text-blue-700" /> },
             { name: "MongoDB", level: 50, icon: <SiMongodb className="text-green-600" /> },
@@ -73,11 +73,11 @@ const skillCategories = [
         title: "Others",
         filter: "tools",
         icon: <Layers size={24} />,
-        color: "from-orange-500 to-yellow-500",
-        bg: "bg-orange-50 dark:bg-orange-900/20",
+        color: "from-cyan-500 to-teal-500",
+        bg: "bg-cyan-500/5 dark:bg-cyan-500/5",
         skills: [
-            { name: "Git & GitHub", level: 70, icon: <SiGithub /> },
-            { name: "Vercel", level: 75, icon: <SiVercel /> },
+            { name: "Git & GitHub", level: 70, icon: <SiGithub className="text-slate-300" /> },
+            { name: "Vercel", level: 75, icon: <SiVercel className="text-white" /> },
         ],
     },
 ]
@@ -113,7 +113,7 @@ const Skills = () => {
                 </div>
 
                 {/* Skill Cards */}
-                <div className="grid gap-10 md:grid-cols-2">
+                <div className="grid gap-6 md:grid-cols-3">
                     {skillCategories
                         .filter(cat => activeFilter === "all" || cat.filter === activeFilter)
                         .map((category, index) => (
@@ -122,7 +122,11 @@ const Skills = () => {
                                 initial={{ opacity: 0, y: 40 }}
                                 whileInView={{ opacity: 1, y: 0 }}
                                 transition={{ duration: 0.6 }}
-                                className="bg-white/70 dark:bg-slate-900/40 backdrop-blur-xl rounded-3xl p-8 shadow-lg border border-slate-200/50 dark:border-white/5 shadow-slate-100/50 dark:shadow-black/20"
+                                className={`bg-white dark:bg-[#0C1220] rounded-3xl p-8 shadow-lg border border-slate-200/50 dark:border-white/5 shadow-slate-100/50 dark:shadow-black/20 ${
+                                    activeFilter === "all" 
+                                        ? (index === 0 || index === 3 ? "md:col-span-2" : "md:col-span-1") 
+                                        : "md:col-span-3"
+                                }`}
                             >
 
                                 <div className="flex items-center gap-3 mb-8">
@@ -132,45 +136,28 @@ const Skills = () => {
                                     <h3 className="text-2xl font-semibold">{category.title}</h3>
                                 </div>
 
-                                {/* AUTO SORTED + TOOLTIP */}
-                                <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
+                                {/* AUTO SORTED + CHIPS */}
+                                <div className={`grid gap-4 ${
+                                    activeFilter === "all" && (index === 0 || index === 3) 
+                                        ? "grid-cols-2 sm:grid-cols-3" 
+                                        : "grid-cols-1 sm:grid-cols-2"
+                                }`}>
                                     {[...category.skills]
                                         .sort((a, b) => b.level - a.level)
                                         .map(skill => (
                                             <motion.div
                                                 key={skill.name}
                                                 whileHover={{ 
-                                                    scale: 1.05, 
-                                                    rotate: [-1, 1, -1, 0], 
-                                                    transition: { duration: 0.3 }
+                                                    scale: 1.03, 
+                                                    borderColor: "rgba(6,182,212,0.4)",
+                                                    boxShadow: "0 0 15px rgba(6,182,212,0.1)"
                                                 }}
-                                                className={`${category.bg} border border-slate-200 dark:border-white/5 rounded-xl p-4 relative group cursor-pointer`}
+                                                className="flex items-center gap-3 bg-slate-50 dark:bg-[#080E1A] border border-slate-200 dark:border-white/5 rounded-xl p-4 cursor-pointer transition-all duration-300"
                                             >
-
-                                                {/* TOOLTIP */}
-                                                <div className="absolute -top-9 left-1/2 -translate-x-1/2
-                          scale-0 group-hover:scale-100 transition duration-200
-                          bg-slate-950 text-white text-xs px-3 py-1 rounded border border-white/10 shadow-lg">
-                                                    {levelLabel(skill.level)} • {skill.level}%
-                                                </div>
-
-                                                <div className="flex justify-between mb-2">
-                                                    <div className="flex items-center gap-2 text-sm font-medium">
-                                                        <span className="text-lg transition-transform group-hover:scale-110 duration-200">{skill.icon}</span>
-                                                        {skill.name}
-                                                    </div>
-                                                    <span className="text-xs text-gray-500">
-                                                        {levelLabel(skill.level)}
-                                                    </span>
-                                                </div>
-
-                                                <div className="w-full h-2 bg-white dark:bg-gray-800 rounded-full overflow-hidden">
-                                                    <motion.div
-                                                        initial={{ width: 0 }}
-                                                        whileInView={{ width: `${skill.level}%` }}
-                                                        transition={{ duration: 0.8 }}
-                                                        className={`h-full bg-gradient-to-r ${category.color}`}
-                                                    />
+                                                <span className="text-2xl">{skill.icon}</span>
+                                                <div className="flex flex-col">
+                                                    <span className="text-sm font-semibold text-slate-800 dark:text-slate-200">{skill.name}</span>
+                                                    <span className="text-xs text-slate-500">{levelLabel(skill.level)}</span>
                                                 </div>
                                             </motion.div>
                                         ))}

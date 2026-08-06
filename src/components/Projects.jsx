@@ -67,7 +67,7 @@ const Projects = () => {
       "
         >
             {/* BACKGROUND GLOW */}
-            <div className="absolute -top-40 left-1/2 -translate-x-1/2 w-[600px] h-[600px] bg-blue-500/10 blur-3xl rounded-full" />
+            <div className="absolute -top-40 left-1/2 -translate-x-1/2 w-[600px] h-[600px] bg-[radial-gradient(circle,rgba(6,182,212,0.08)_0%,transparent_70%)] rounded-full" />
 
             <div className="relative max-w-7xl mx-auto px-6">
                 {/* HEADER */}
@@ -103,15 +103,15 @@ const Projects = () => {
                                 onClick={() => setActiveFilter(filter.value)}
                                 className={`
                   inline-flex items-center gap-2
-                  px-5 py-2 rounded-full text-sm font-medium
-                  border transition
+                  px-5 py-2.5 rounded-xl text-sm font-semibold
+                  border transition-all duration-300
                   ${activeFilter === filter.value
-                                        ? "bg-cyan-500 text-slate-900 font-bold border-cyan-500 shadow-lg shadow-cyan-500/20"
-                                        : "bg-white/70 dark:bg-gray-900/70 text-gray-700 dark:text-gray-300 border-gray-300 dark:border-gray-700 hover:bg-gray-100 dark:hover:bg-gray-800"
+                                        ? "bg-cyan-500 text-slate-900 border-cyan-500 shadow-md shadow-cyan-500/20"
+                                        : "bg-white/70 dark:bg-slate-900/50 text-gray-700 dark:text-gray-300 border-slate-200/50 dark:border-white/5 hover:border-cyan-500/40 hover:text-cyan-400"
                                     }
                 `}
                             >
-                                <Icon size={16} />
+                                <Icon size={15} />
                                 {filter.label}
                             </button>
                         )
@@ -136,22 +136,25 @@ const Projects = () => {
                                 transition={{ duration: 0.4 }}
                                 className="
                                     group rounded-3xl
-                                    bg-white/70 dark:bg-slate-900/40
-                                    backdrop-blur-xl
+                                    bg-white dark:bg-[#0C1220]
                                     border border-slate-200/50 dark:border-white/5
                                     overflow-hidden
-                                    shadow-lg hover:shadow-2xl hover:shadow-blue-500/20 dark:hover:shadow-purple-500/20
-                                    hover:border-blue-500/45 dark:hover:border-purple-500/45
+                                    shadow-lg hover:shadow-2xl hover:shadow-cyan-500/10
+                                    hover:border-cyan-500/30
                                     hover:-translate-y-2
                                     transition-all duration-300
                                 "
                             >
                                 {/* IMAGE */}
                                 <div className="relative h-48 overflow-hidden">
+                                    {/* CATEGORY FLOATING BADGE */}
+                                    <div className="absolute top-4 left-4 z-20 bg-slate-950/85 backdrop-blur-md text-[10px] font-bold px-2.5 py-1 rounded-lg border border-white/5 text-cyan-400 uppercase tracking-wider">
+                                        {project.category}
+                                    </div>
                                     <img
                                         src={project.image}
                                         alt={project.title}
-                                        className="w-full h-full object-cover group-hover:scale-110 transition duration-500"
+                                        className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
                                     />
                                 </div>
 
@@ -184,7 +187,7 @@ const Projects = () => {
                                         <a
                                             href={project.github}
                                             target="_blank"
-                                            className="flex-1 inline-flex items-center justify-center gap-2 py-2.5 px-4 rounded-xl border border-slate-200 dark:border-white/10 text-sm font-semibold text-slate-700 dark:text-slate-300 hover:border-cyan-500/50 hover:text-cyan-400 hover:bg-cyan-500/5 transition duration-200"
+                                            className="flex-1 inline-flex items-center justify-center gap-2 py-2.5 px-4 rounded-xl border border-slate-200 dark:border-white/10 text-sm font-semibold text-slate-700 dark:text-slate-300 hover:border-cyan-500 hover:text-slate-900 hover:bg-cyan-500 transition duration-200"
                                         >
                                             <Github size={16} /> View Code
                                         </a>
@@ -193,7 +196,7 @@ const Projects = () => {
                                             <a
                                                 href={project.live}
                                                 target="_blank"
-                                                className="inline-flex items-center justify-center p-2.5 rounded-xl border border-slate-200 dark:border-white/10 text-slate-700 dark:text-slate-300 hover:border-cyan-500/50 hover:text-cyan-400 hover:bg-cyan-500/5 transition duration-200"
+                                                className="inline-flex items-center justify-center p-2.5 rounded-xl border border-slate-200 dark:border-white/10 text-slate-700 dark:text-slate-300 hover:border-cyan-500 hover:text-cyan-400 hover:bg-cyan-500/5 transition duration-200"
                                                 title="Live Preview"
                                             >
                                                 <ExternalLink size={16} />

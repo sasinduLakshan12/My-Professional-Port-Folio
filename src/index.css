@@ -7,6 +7,11 @@ body {
     scroll-behavior: smooth;
     overflow-x: hidden;
     width: 100%;
+    font-family: 'Inter', sans-serif;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    font-family: 'Sora', sans-serif;
 }
 
 /* Custom Scrollbar */
@@ -22,4 +27,26 @@ body {
 }
 ::-webkit-scrollbar-thumb:hover {
     background: linear-gradient(to bottom, #0891b2, #0f766e);
+}
+
+/* Infinite Scroll Carousel */
+@keyframes infinite-scroll {
+    0% {
+        transform: translateX(0);
+    }
+    100% {
+        transform: translateX(-50%);
+    }
+}
+
+.animate-infinite-scroll {
+    display: flex;
+    width: max-content;
+    animation: infinite-scroll 25s linear infinite;
+    will-change: transform;
+    transform: translate3d(0, 0, 0);
+}
+
+.animate-infinite-scroll:hover {
+    animation-play-state: paused;
 }

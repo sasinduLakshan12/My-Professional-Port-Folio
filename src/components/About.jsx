@@ -1,14 +1,23 @@
 import { motion } from "framer-motion"
-import { Code2, Briefcase, Sparkles } from "lucide-react"
+import { Code2, Briefcase, Sparkles, MapPin, Mail, GraduationCap, Download } from "lucide-react"
 import { useEffect, useState } from "react"
 import {
     FaReact,
     FaJsSquare,
     FaGitAlt,
     FaNodeJs,
-    FaGithub
+    FaGithub,
+    FaLinkedin
 } from "react-icons/fa"
-import { SiTailwindcss, SiMysql } from "react-icons/si"
+import { 
+    SiTailwindcss, 
+    SiMysql,
+    SiPython,
+    SiCplusplus,
+    SiMongodb,
+    SiExpress,
+    SiFirebase
+} from "react-icons/si"
 import profileImg from "../assets/Profile.jpg"
 
 // COUNTER
@@ -59,138 +68,212 @@ const About = () => {
     return (
         <section
             id="about"
-            className="
-        py-32 overflow-hidden
-        bg-gradient-to-b from-slate-50 via-white to-slate-100
-        dark:from-[#0B1530] dark:via-[#090F26] dark:to-[#070B19]
-        text-gray-900 dark:text-white
-      "
+            className="py-32 bg-[#070B19] text-white relative overflow-hidden"
         >
-            <div className="max-w-7xl mx-auto px-6">
+            {/* GLOW EFFECT */}
+            <div className="absolute top-10 left-10 w-96 h-96 bg-[radial-gradient(circle,rgba(6,182,212,0.05)_0%,transparent_70%)] rounded-full blur-2xl" />
 
-                {/* HEADER */}
-                <motion.div
-                    initial={{ opacity: 0, y: 30 }}
-                    whileInView={{ opacity: 1, y: 0 }}
-                    viewport={{ once: true }}
-                    transition={{ duration: 0.6 }}
-                    className="mb-20 max-w-3xl"
-                >
-                    <h2 className="text-5xl font-extrabold leading-tight">
-                        About <span className="text-cyan-500">Me</span>
-                    </h2>
+            <div className="max-w-7xl mx-auto px-6 relative z-10">
 
-                    <p className="mt-6 text-lg text-gray-700 dark:text-gray-300">
-                        I’m Sasindu Lakshan, a passionate software developer focused on
-                        building modern and scalable web applications.
-                    </p>
-                </motion.div>
-
-                <div className="grid lg:grid-cols-2 gap-20 items-center">
-
-                    {/* PROFILE IMAGE */}
-                    <div className="flex justify-center">
-                        <div className="relative w-72 h-72">
-
-                            {/* GRADIENT RING */}
-                            <div className="absolute -inset-4 rounded-full bg-gradient-to-r from-cyan-400 via-blue-500 to-purple-600 blur-lg opacity-80 animate-spin-slow"></div>
-
-                            {/* IMAGE */}
+                <div className="grid lg:grid-cols-12 gap-12 items-start">
+                    
+                    {/* LEFT COLUMN: Profile & Fast Facts */}
+                    <motion.div 
+                        initial={{ opacity: 0, x: -40 }}
+                        whileInView={{ opacity: 1, x: 0 }}
+                        viewport={{ once: true }}
+                        transition={{ duration: 0.6 }}
+                        className="lg:col-span-5 bg-[#0B1120]/45 backdrop-blur-xl border border-white/5 rounded-3xl p-8 flex flex-col items-center text-center space-y-6 shadow-xl"
+                    >
+                        {/* Profile Image Wrap */}
+                        <div className="relative w-48 h-48">
+                            <div className="absolute -inset-2 rounded-full bg-gradient-to-r from-cyan-400 via-teal-500 to-emerald-500 blur-md opacity-70 animate-spin-slow"></div>
                             <img
                                 src={profileImg}
                                 alt="Sasindu Lakshan"
-                                className="relative z-10 w-full h-full rounded-full object-cover border-4 border-white dark:border-gray-800 shadow-2xl"
+                                className="relative z-10 w-full h-full rounded-full object-cover border-4 border-[#070B19]"
                             />
-
-                            {/* ONLINE DOT */}
-                            <span className="absolute bottom-5 right-5 z-20 flex h-4 w-4">
+                            <span className="absolute bottom-2 right-2 z-20 flex h-4.5 w-4.5">
                                 <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-green-400 opacity-75"></span>
-                                <span className="relative inline-flex rounded-full h-4 w-4 bg-green-500"></span>
+                                <span className="relative inline-flex rounded-full h-4.5 w-4.5 bg-green-500 border-2 border-[#070B19]"></span>
                             </span>
                         </div>
-                    </div>
 
-                    {/* TEXT + TECH ICONS + STATS */}
-                    <div className="space-y-10">
+                        {/* Title Info */}
+                        <div>
+                            <h3 className="text-2xl font-bold text-white">Sasindu Lakshan</h3>
+                            <p className="text-cyan-400 text-sm font-semibold tracking-wider uppercase mt-1">Full Stack Developer</p>
+                        </div>
 
-                        {/* DESCRIPTION */}
+                        {/* Facts List */}
+                        <div className="w-full space-y-4 pt-4 border-t border-white/5 text-left text-sm text-slate-300">
+                            <div className="flex items-center gap-3">
+                                <GraduationCap size={18} className="text-cyan-500 shrink-0" />
+                                <div>
+                                    <span className="block text-[10px] text-slate-500 uppercase font-bold tracking-wider">Education</span>
+                                    <span className="text-slate-200 font-medium">University of Vavuniya</span>
+                                </div>
+                            </div>
+                            <div className="flex items-center gap-3">
+                                <MapPin size={18} className="text-cyan-500 shrink-0" />
+                                <div>
+                                    <span className="block text-[10px] text-slate-500 uppercase font-bold tracking-wider">Location</span>
+                                    <span className="text-slate-200 font-medium">Vavuniya, Sri Lanka</span>
+                                </div>
+                            </div>
+                            <div className="flex items-center gap-3">
+                                <Mail size={18} className="text-cyan-500 shrink-0" />
+                                <div>
+                                    <span className="block text-[10px] text-slate-500 uppercase font-bold tracking-wider">Email</span>
+                                    <span className="text-slate-200 font-medium text-xs break-all">sasindu125lakshan@gmail.com</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        {/* Action Buttons */}
+                        <div className="w-full flex gap-3">
+                            <a 
+                                href="#contact" 
+                                className="flex-1 inline-flex items-center justify-center gap-2 py-3 px-4 rounded-2xl bg-cyan-500 hover:bg-cyan-600 text-slate-900 font-bold transition duration-300 shadow-lg shadow-cyan-500/20 text-sm"
+                            >
+                                <Mail size={16} /> Let's Talk
+                            </a>
+                            <a 
+                                href="#projects" 
+                                className="flex-1 inline-flex items-center justify-center gap-2 py-3 px-4 rounded-2xl border border-white/10 hover:border-cyan-500/50 hover:text-cyan-400 transition duration-300 text-sm font-bold bg-white/5"
+                            >
+                                <Briefcase size={16} /> My Work
+                            </a>
+                        </div>
+                    </motion.div>
+
+                    {/* RIGHT COLUMN: Bio, Core Competencies & Stats */}
+                    <div className="lg:col-span-7 space-y-8">
                         <motion.div
-                            initial={{ opacity: 0, x: 40 }}
-                            whileInView={{ opacity: 1, x: 0 }}
+                            initial={{ opacity: 0, y: 30 }}
+                            whileInView={{ opacity: 1, y: 0 }}
                             viewport={{ once: true }}
                             transition={{ duration: 0.6 }}
-                            className="space-y-6"
                         >
-                            <p className="text-lg text-gray-700 dark:text-gray-300">
-                                I specialize in frontend development, crafting responsive and
-                                user-friendly interfaces with clean UI and simple logic.
+                            <span className="text-sm uppercase tracking-widest text-cyan-500 font-semibold">Intro</span>
+                            <h2 className="text-4xl font-extrabold text-white mt-2">
+                                About <span className="text-cyan-500">Me</span>
+                            </h2>
+                            <p className="mt-5 text-slate-300 leading-relaxed">
+                                I am a passionate computer science undergraduate at the University of Vavuniya, Sri Lanka. I specialize in web software architectures, building responsive and high-performance full-stack applications.
                             </p>
-
-                            <p className="text-lg text-gray-700 dark:text-gray-300">
-                                Currently learning full-stack development and building real-world projects.
+                            <p className="mt-4 text-slate-400 leading-relaxed text-sm">
+                                Dedicated to clean code, interactive user interfaces, and modular backend APIs. I am continuously learning modern frameworks to deliver scalable, production-ready solutions.
                             </p>
-
-                            {/* ✅ TECH ICON ROW */}
-                            <div className="flex flex-wrap gap-6 pt-4 text-3xl text-gray-700 dark:text-gray-300">
-                                <motion.div whileHover={{ scale: 1.2, y: -5, rotate: 10 }} className="cursor-pointer transition-shadow hover:drop-shadow-[0_0_8px_rgba(6,182,212,0.5)]"><FaReact className="text-cyan-500" title="React" /></motion.div>
-                                <motion.div whileHover={{ scale: 1.2, y: -5, rotate: -10 }} className="cursor-pointer transition-shadow hover:drop-shadow-[0_0_8px_rgba(56,189,248,0.5)]"><SiTailwindcss className="text-sky-500" title="Tailwind CSS" /></motion.div>
-                                <motion.div whileHover={{ scale: 1.2, y: -5, rotate: 10 }} className="cursor-pointer transition-shadow hover:drop-shadow-[0_0_8px_rgba(234,179,8,0.5)]"><FaJsSquare className="text-yellow-400" title="JavaScript" /></motion.div>
-                                <motion.div whileHover={{ scale: 1.2, y: -5, rotate: -10 }} className="cursor-pointer transition-shadow hover:drop-shadow-[0_0_8px_rgba(34,197,94,0.5)]"><FaNodeJs className="text-green-500" title="Node.js" /></motion.div>
-                                <motion.div whileHover={{ scale: 1.2, y: -5, rotate: 10 }} className="cursor-pointer transition-shadow hover:drop-shadow-[0_0_8px_rgba(29,78,216,0.5)]"><SiMysql className="text-blue-600" title="MySQL" /></motion.div>
-                                <motion.div whileHover={{ scale: 1.2, y: -5, rotate: -10 }} className="cursor-pointer transition-shadow hover:drop-shadow-[0_0_8px_rgba(249,115,22,0.5)]"><FaGitAlt className="text-orange-500" title="Git" /></motion.div>
-                            </div>
                         </motion.div>
 
-                        {/* STATS */}
+                        {/* CORE FOCUSES */}
+                        <div className="grid sm:grid-cols-2 gap-4">
+                            <motion.div 
+                                whileHover={{ y: -3, borderColor: "rgba(6,182,212,0.2)" }}
+                                className="bg-[#0B1120]/30 border border-white/5 p-5 rounded-2xl transition duration-300"
+                            >
+                                <Code2 className="text-cyan-500 mb-2 w-5 h-5" />
+                                <h4 className="text-base font-bold text-white">Full Stack Engineering</h4>
+                                <p className="text-xs text-slate-400 mt-2 leading-relaxed">Designing clean UI systems linked seamlessly with robust and scalable server logic.</p>
+                            </motion.div>
+                            
+                            <motion.div 
+                                whileHover={{ y: -3, borderColor: "rgba(168,85,247,0.2)" }}
+                                className="bg-[#0B1120]/30 border border-white/5 p-5 rounded-2xl transition duration-300"
+                            >
+                                <Sparkles className="text-purple-400 mb-2 w-5 h-5" />
+                                <h4 className="text-base font-bold text-white">Modern UI Development</h4>
+                                <p className="text-xs text-slate-400 mt-2 leading-relaxed">Creating clean architectures using React, Tailwind CSS, and Framer Motion.</p>
+                            </motion.div>
+                        </div>
+
+                        {/* COMPACT STATS GRID */}
                         <motion.div
                             initial={{ opacity: 0, y: 30 }}
                             whileInView={{ opacity: 1, y: 0 }}
                             onViewportEnter={() => setAnimate(true)}
                             viewport={{ once: true }}
                             transition={{ duration: 0.6 }}
-                            className="grid grid-cols-2 gap-6"
+                            className="grid grid-cols-2 sm:grid-cols-4 gap-4"
                         >
-                            <div className="bg-white/80 dark:bg-gray-900/70 backdrop-blur-xl rounded-3xl p-6 shadow-lg border border-gray-200/30 dark:border-gray-800/30">
-                                <Code2 className="text-cyan-500 mb-3" />
-                                <h3 className="text-2xl font-bold">
+                            <div className="bg-[#0B1120]/45 border border-white/5 p-4 rounded-2xl text-center">
+                                <h3 className="text-xl font-bold text-cyan-400">
                                     <Counter value={3} suffix="+" trigger={animate} />
                                 </h3>
-                                <p className="text-gray-600 dark:text-gray-400 text-sm">Projects</p>
+                                <p className="text-xs text-slate-400 mt-1">Projects</p>
                             </div>
-
-                            <div className="bg-white/80 dark:bg-gray-900/70 backdrop-blur-xl rounded-3xl p-6 shadow-lg border border-gray-200/30 dark:border-gray-800/30">
-                                <Briefcase className="text-purple-600 mb-3" />
-                                <h3 className="text-2xl font-bold">
+                            <div className="bg-[#0B1120]/45 border border-white/5 p-4 rounded-2xl text-center">
+                                <h3 className="text-xl font-bold text-purple-400">
                                     <Counter value={3} suffix="+" trigger={animate} />
                                 </h3>
-                                <p className="text-gray-600 dark:text-gray-400 text-sm">Years Learning</p>
+                                <p className="text-xs text-slate-400 mt-1">Learning</p>
                             </div>
-
-                            <div className="bg-white/80 dark:bg-gray-900/70 backdrop-blur-xl rounded-3xl p-6 shadow-lg border border-gray-200/30 dark:border-gray-800/30">
-                                <Sparkles className="text-green-600 mb-3" />
-                                <h3 className="text-2xl font-bold">
+                            <div className="bg-[#0B1120]/45 border border-white/5 p-4 rounded-2xl text-center">
+                                <h3 className="text-xl font-bold text-green-400">
                                     <Counter value={100} suffix="%" trigger={animate} />
                                 </h3>
-                                <p className="text-gray-600 dark:text-gray-400 text-sm">Passion</p>
+                                <p className="text-xs text-slate-400 mt-1">Passion</p>
                             </div>
-
                             <a 
                                 href="https://github.com/sasinduLakshan12" 
                                 target="_blank" 
                                 rel="noreferrer"
-                                className="bg-white/80 dark:bg-gray-900/70 backdrop-blur-xl rounded-3xl p-6 shadow-lg border border-gray-200/30 dark:border-gray-800/30 hover:border-blue-500/30 dark:hover:border-blue-500/30 hover:scale-[1.03] transition-all block text-left"
+                                className="block"
                             >
-                                <FaGithub className="text-gray-900 dark:text-white mb-3 text-2.5xl" />
-                                <h3 className="text-2xl font-bold flex items-baseline gap-1">
-                                    {githubStats.repos}
-                                    <span className="text-xs font-normal text-gray-500">repos</span>
-                                </h3>
-                                <p className="text-gray-600 dark:text-gray-400 text-sm">GitHub Live Stats</p>
+                                <div className="bg-[#0B1120]/45 border border-white/5 hover:border-cyan-500/30 p-4 rounded-2xl text-center transition-all duration-300">
+                                    <h3 className="text-xl font-bold text-white flex items-center justify-center gap-1">
+                                        {githubStats.repos} <span className="text-[10px] text-slate-400 font-normal">repos</span>
+                                    </h3>
+                                    <p className="text-xs text-slate-400 mt-1">GitHub Live</p>
+                                </div>
                             </a>
                         </motion.div>
 
                     </div>
                 </div>
+
+                {/* INFINITE AUTOSCROLLING SLIDER */}
+                <div className="mt-24 relative w-full overflow-hidden py-4 border-y border-slate-200/30 dark:border-white/5 bg-[#0B1120]/30 backdrop-blur-sm">
+                    <div className="animate-infinite-scroll flex gap-8 whitespace-nowrap">
+                        {[
+                            { name: "React", icon: <FaReact className="text-cyan-500" /> },
+                            { name: "Tailwind CSS", icon: <SiTailwindcss className="text-sky-500" /> },
+                            { name: "JavaScript", icon: <FaJsSquare className="text-yellow-400" /> },
+                            { name: "Node.js", icon: <FaNodeJs className="text-green-500" /> },
+                            { name: "MySQL", icon: <SiMysql className="text-blue-600" /> },
+                            { name: "Git", icon: <FaGitAlt className="text-orange-500" /> },
+                            { name: "Python", icon: <SiPython className="text-blue-500" /> },
+                            { name: "C++", icon: <SiCplusplus className="text-blue-600" /> },
+                            { name: "MongoDB", icon: <SiMongodb className="text-green-600" /> },
+                            { name: "Express", icon: <SiExpress className="text-gray-400" /> },
+                            { name: "Firebase", icon: <SiFirebase className="text-yellow-500" /> },
+                            { name: "GitHub", icon: <FaGithub className="text-white" /> }
+                        ].concat([
+                            { name: "React", icon: <FaReact className="text-cyan-500" /> },
+                            { name: "Tailwind CSS", icon: <SiTailwindcss className="text-sky-500" /> },
+                            { name: "JavaScript", icon: <FaJsSquare className="text-yellow-400" /> },
+                            { name: "Node.js", icon: <FaNodeJs className="text-green-500" /> },
+                            { name: "MySQL", icon: <SiMysql className="text-blue-600" /> },
+                            { name: "Git", icon: <FaGitAlt className="text-orange-500" /> },
+                            { name: "Python", icon: <SiPython className="text-blue-500" /> },
+                            { name: "C++", icon: <SiCplusplus className="text-blue-600" /> },
+                            { name: "MongoDB", icon: <SiMongodb className="text-green-600" /> },
+                            { name: "Express", icon: <SiExpress className="text-gray-400" /> },
+                            { name: "Firebase", icon: <SiFirebase className="text-yellow-500" /> },
+                            { name: "GitHub", icon: <FaGithub className="text-white" /> }
+                        ]).map((item, idx) => (
+                            <div 
+                                key={idx} 
+                                className="inline-flex items-center gap-2 px-5 py-2 rounded-full bg-slate-100 dark:bg-slate-900 border border-slate-200 dark:border-white/5 text-sm font-semibold text-slate-700 dark:text-slate-200 shadow-sm"
+                            >
+                                <span className="text-lg">{item.icon}</span>
+                                {item.name}
+                            </div>
+                        ))}
+                    </div>
+                </div>
+
             </div>
         </section>
     )

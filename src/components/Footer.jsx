@@ -66,7 +66,7 @@ const Footer = () => {
                 />
 
                 {/* SOFT GLOW */}
-                <div className="absolute inset-x-0 -top-28 h-44 bg-gradient-to-r from-blue-500/20 via-purple-500/20 to-pink-500/20 blur-3xl" />
+                <div className="absolute inset-x-0 -top-28 h-44 bg-gradient-to-r from-cyan-500/10 via-teal-500/10 to-cyan-500/10 blur-2xl" />
 
                 <div className="relative max-w-7xl mx-auto px-6 py-10 md:py-16">
 
