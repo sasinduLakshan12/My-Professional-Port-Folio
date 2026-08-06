@@ -35,8 +35,8 @@ const Home = () => {
             id="home"
             className="
         relative min-h-screen flex items-center
-        bg-gradient-to-b from-white via-gray-50 to-gray-100
-        dark:from-gray-950 dark:via-gray-900 dark:to-gray-950
+        bg-gradient-to-b from-slate-50 via-white to-slate-100
+        dark:from-[#070B19] dark:via-[#090F26] dark:to-[#0B1530]
         overflow-hidden
       "
         >
@@ -71,9 +71,9 @@ const Home = () => {
                             Open to Work
                         </span>
 
-                        <h1 className="text-5xl sm:text-6xl xl:text-7xl font-extrabold leading-tight">
+                        <h1 className="text-5xl sm:text-6xl xl:text-7xl font-extrabold leading-tight text-slate-900 dark:text-white">
                             Hi, I’m{" "}
-                            <span className="bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">
+                            <span className="bg-gradient-to-r from-cyan-400 to-teal-500 bg-clip-text text-transparent">
                                 Sasindu Lakshan
                             </span>
                         </h1>
@@ -84,8 +84,8 @@ const Home = () => {
             inline-block mt-2
             px-5 py-2
             rounded-full
-            bg-blue-100/70 dark:bg-blue-900/30
-            text-blue-700 dark:text-blue-300
+            bg-cyan-500/10 dark:bg-cyan-500/20
+            text-cyan-600 dark:text-cyan-400
             text-sm font-semibold tracking-wide
           ">
                         {text}
@@ -104,7 +104,7 @@ const Home = () => {
                         </span>{" "}
                         focused on building modern, scalable and user-friendly web
                         applications using{" "}
-                        <span className="text-blue-600 dark:text-blue-400 font-medium">
+                        <span className="text-cyan-500 dark:text-cyan-400 font-medium">
                             Next.js, React, Tailwind CSS, Node.js
                         </span>{" "}
                         and APIs.
@@ -113,17 +113,17 @@ const Home = () => {
                     {/* TECH ROW */}
                     <div className="flex flex-wrap gap-8 pt-2 text-gray-700 dark:text-gray-300">
                         <div className="flex items-center gap-2">
-                            <Code2 size={20} className="text-blue-600" />
+                            <Code2 size={20} className="text-cyan-500" />
                             <span className="text-sm font-medium">Frontend</span>
                         </div>
 
                         <div className="flex items-center gap-2">
-                            <Server size={20} className="text-purple-600" />
+                            <Server size={20} className="text-teal-500" />
                             <span className="text-sm font-medium">Backend</span>
                         </div>
 
                         <div className="flex items-center gap-2">
-                            <Briefcase size={20} className="text-green-600" />
+                            <Briefcase size={20} className="text-emerald-500" />
                             <span className="text-sm font-medium">Real Projects</span>
                         </div>
                     </div>
@@ -135,9 +135,9 @@ const Home = () => {
                             className="
                 inline-flex items-center gap-2
                 px-7 py-3 rounded-2xl
-                bg-blue-600 text-white font-medium
-                shadow-lg shadow-blue-600/30
-                hover:bg-blue-700 hover:scale-[1.03]
+                bg-cyan-500 text-slate-950 font-bold
+                shadow-lg shadow-cyan-500/20
+                hover:bg-cyan-400 hover:scale-[1.03]
                 transition
               "
                         >
@@ -150,9 +150,9 @@ const Home = () => {
                             className="
                                 inline-flex items-center gap-2
                                 px-7 py-3 rounded-2xl
-                                border border-gray-300 dark:border-gray-700
+                                border border-gray-300 dark:border-white/10
                                 text-gray-800 dark:text-gray-200
-                                hover:bg-gray-100 dark:hover:bg-gray-800
+                                hover:border-cyan-500/50 hover:text-cyan-400
                                 hover:scale-[1.03]
                                 transition
                             "
@@ -166,7 +166,7 @@ const Home = () => {
                         <a href="https://github.com/sasinduLakshan12" target="_blank" className="hover:text-black dark:hover:text-white transition">
                             <Github />
                         </a>
-                        <a href="https://www.linkedin.com/in/sasindu-lakshan-5b404933a/" target="_blank" className="hover:text-blue-600 transition">
+                        <a href="https://www.linkedin.com/in/sasindu-lakshan-5b404933a/" target="_blank" className="hover:text-cyan-400 transition">
                             <Linkedin />
                         </a>
                         <a href="mailto:sasindu125lakshan@gmail.com" className="hover:text-red-500 transition">
@@ -250,8 +250,13 @@ const Home = () => {
                         {/* React Badge */}
                         <motion.div
                             animate={{ y: [0, -10, 0] }}
-                            transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
-                            className="absolute -top-4 -left-4 bg-white/90 dark:bg-gray-900/90 backdrop-blur-md p-3 rounded-2xl shadow-xl border border-gray-200/50 dark:border-gray-800/50 flex items-center gap-2"
+                            whileHover={{ scale: 1.1, rotate: 5, boxShadow: "0 0 20px rgba(6,182,212,0.4)" }}
+                            transition={{ 
+                                y: { duration: 4, repeat: Infinity, ease: "easeInOut" },
+                                scale: { duration: 0.2 },
+                                rotate: { duration: 0.2 }
+                            }}
+                            className="absolute -top-4 -left-4 bg-white/90 dark:bg-gray-900/90 backdrop-blur-md p-3 rounded-2xl shadow-xl border border-gray-200/50 dark:border-white/5 flex items-center gap-2 cursor-pointer transition-colors hover:border-cyan-500/30"
                         >
                             <FaReact className="text-cyan-500 text-xl animate-spin-slow" />
                             <span className="text-xs font-semibold text-gray-800 dark:text-gray-200">React</span>
@@ -260,8 +265,13 @@ const Home = () => {
                         {/* Node Badge */}
                         <motion.div
                             animate={{ y: [0, 10, 0] }}
-                            transition={{ duration: 4.5, repeat: Infinity, ease: "easeInOut" }}
-                            className="absolute -bottom-4 -right-4 bg-white/90 dark:bg-gray-900/90 backdrop-blur-md p-3 rounded-2xl shadow-xl border border-gray-200/50 dark:border-gray-800/50 flex items-center gap-2"
+                            whileHover={{ scale: 1.1, rotate: -5, boxShadow: "0 0 20px rgba(34,197,94,0.4)" }}
+                            transition={{ 
+                                y: { duration: 4.5, repeat: Infinity, ease: "easeInOut" },
+                                scale: { duration: 0.2 },
+                                rotate: { duration: 0.2 }
+                            }}
+                            className="absolute -bottom-4 -right-4 bg-white/90 dark:bg-gray-900/90 backdrop-blur-md p-3 rounded-2xl shadow-xl border border-gray-200/50 dark:border-white/5 flex items-center gap-2 cursor-pointer transition-colors hover:border-green-500/30"
                         >
                             <FaNodeJs className="text-green-500 text-xl" />
                             <span className="text-xs font-semibold text-gray-800 dark:text-gray-200">Node.js</span>
@@ -270,8 +280,13 @@ const Home = () => {
                         {/* Tailwind Badge */}
                         <motion.div
                             animate={{ x: [0, 8, 0] }}
-                            transition={{ duration: 5, repeat: Infinity, ease: "easeInOut" }}
-                            className="absolute top-1/2 -right-8 -translate-y-1/2 bg-white/90 dark:bg-gray-900/90 backdrop-blur-md p-3 rounded-2xl shadow-xl border border-gray-200/50 dark:border-gray-800/50 flex items-center gap-2"
+                            whileHover={{ scale: 1.1, rotate: 3, boxShadow: "0 0 20px rgba(56,189,248,0.4)" }}
+                            transition={{ 
+                                x: { duration: 5, repeat: Infinity, ease: "easeInOut" },
+                                scale: { duration: 0.2 },
+                                rotate: { duration: 0.2 }
+                            }}
+                            className="absolute top-1/2 -right-8 -translate-y-1/2 bg-white/90 dark:bg-gray-900/90 backdrop-blur-md p-3 rounded-2xl shadow-xl border border-gray-200/50 dark:border-white/5 flex items-center gap-2 cursor-pointer transition-colors hover:border-sky-500/30"
                         >
                             <SiTailwindcss className="text-sky-400 text-lg" />
                             <span className="text-xs font-semibold text-gray-800 dark:text-gray-200">Tailwind</span>

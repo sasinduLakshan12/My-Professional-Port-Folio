@@ -88,11 +88,11 @@ const Skills = () => {
     const [activeFilter, setActiveFilter] = useState("all")
 
     return (
-        <section id="skills" className="py-28 bg-gray-100 dark:bg-gray-950 text-gray-900 dark:text-white">
+        <section id="skills" className="py-28 bg-slate-50 dark:bg-[#070B19] text-gray-900 dark:text-white relative">
             <div className="max-w-7xl mx-auto px-6">
 
                 <h2 className="text-4xl font-bold text-center mb-10">
-                    My <span className="text-blue-600">Skills</span>
+                    My <span className="text-cyan-500">Skills</span>
                 </h2>
 
                 {/* Filter Tabs */}
@@ -103,8 +103,8 @@ const Skills = () => {
                             onClick={() => setActiveFilter(f)}
                             className={`px-5 py-2 rounded-full text-sm font-medium transition
               ${activeFilter === f
-                                    ? "bg-blue-600 text-white"
-                                    : "bg-white dark:bg-gray-800 hover:bg-gray-200 dark:hover:bg-gray-700"
+                                    ? "bg-cyan-500 text-slate-900 font-bold shadow-lg shadow-cyan-500/20"
+                                    : "bg-white dark:bg-[#0B1530] border border-slate-200/50 dark:border-white/5 hover:bg-gray-200 dark:hover:bg-gray-800"
                                 }`}
                         >
                             {f.toUpperCase()}
@@ -122,7 +122,7 @@ const Skills = () => {
                                 initial={{ opacity: 0, y: 40 }}
                                 whileInView={{ opacity: 1, y: 0 }}
                                 transition={{ duration: 0.6 }}
-                                className="bg-white dark:bg-gray-900 rounded-3xl p-8 shadow-lg"
+                                className="bg-white/70 dark:bg-slate-900/40 backdrop-blur-xl rounded-3xl p-8 shadow-lg border border-slate-200/50 dark:border-white/5 shadow-slate-100/50 dark:shadow-black/20"
                             >
 
                                 <div className="flex items-center gap-3 mb-8">
@@ -139,20 +139,24 @@ const Skills = () => {
                                         .map(skill => (
                                             <motion.div
                                                 key={skill.name}
-                                                whileHover={{ scale: 1.05 }}
-                                                className={`${category.bg} border border-gray-200 dark:border-gray-700 rounded-xl p-4 relative group`}
+                                                whileHover={{ 
+                                                    scale: 1.05, 
+                                                    rotate: [-1, 1, -1, 0], 
+                                                    transition: { duration: 0.3 }
+                                                }}
+                                                className={`${category.bg} border border-slate-200 dark:border-white/5 rounded-xl p-4 relative group cursor-pointer`}
                                             >
 
                                                 {/* TOOLTIP */}
                                                 <div className="absolute -top-9 left-1/2 -translate-x-1/2
-                          scale-0 group-hover:scale-100 transition
-                          bg-black text-white text-xs px-3 py-1 rounded">
+                          scale-0 group-hover:scale-100 transition duration-200
+                          bg-slate-950 text-white text-xs px-3 py-1 rounded border border-white/10 shadow-lg">
                                                     {levelLabel(skill.level)} • {skill.level}%
                                                 </div>
 
                                                 <div className="flex justify-between mb-2">
                                                     <div className="flex items-center gap-2 text-sm font-medium">
-                                                        <span className="text-lg">{skill.icon}</span>
+                                                        <span className="text-lg transition-transform group-hover:scale-110 duration-200">{skill.icon}</span>
                                                         {skill.name}
                                                     </div>
                                                     <span className="text-xs text-gray-500">

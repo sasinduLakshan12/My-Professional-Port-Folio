@@ -61,8 +61,8 @@ const About = () => {
             id="about"
             className="
         py-32 overflow-hidden
-        bg-gradient-to-b from-gray-50 via-white to-gray-100
-        dark:from-gray-950 dark:via-gray-900 dark:to-gray-950
+        bg-gradient-to-b from-slate-50 via-white to-slate-100
+        dark:from-[#0B1530] dark:via-[#090F26] dark:to-[#070B19]
         text-gray-900 dark:text-white
       "
         >
@@ -77,7 +77,7 @@ const About = () => {
                     className="mb-20 max-w-3xl"
                 >
                     <h2 className="text-5xl font-extrabold leading-tight">
-                        About <span className="text-blue-600">Me</span>
+                        About <span className="text-cyan-500">Me</span>
                     </h2>
 
                     <p className="mt-6 text-lg text-gray-700 dark:text-gray-300">
@@ -132,12 +132,12 @@ const About = () => {
 
                             {/* ✅ TECH ICON ROW */}
                             <div className="flex flex-wrap gap-6 pt-4 text-3xl text-gray-700 dark:text-gray-300">
-                                <FaReact className="text-cyan-500" title="React" />
-                                <SiTailwindcss className="text-sky-500" title="Tailwind CSS" />
-                                <FaJsSquare className="text-yellow-400" title="JavaScript" />
-                                <FaNodeJs className="text-green-500" title="Node.js" />
-                                <SiMysql className="text-blue-600" title="MySQL" />
-                                <FaGitAlt className="text-orange-500" title="Git" />
+                                <motion.div whileHover={{ scale: 1.2, y: -5, rotate: 10 }} className="cursor-pointer transition-shadow hover:drop-shadow-[0_0_8px_rgba(6,182,212,0.5)]"><FaReact className="text-cyan-500" title="React" /></motion.div>
+                                <motion.div whileHover={{ scale: 1.2, y: -5, rotate: -10 }} className="cursor-pointer transition-shadow hover:drop-shadow-[0_0_8px_rgba(56,189,248,0.5)]"><SiTailwindcss className="text-sky-500" title="Tailwind CSS" /></motion.div>
+                                <motion.div whileHover={{ scale: 1.2, y: -5, rotate: 10 }} className="cursor-pointer transition-shadow hover:drop-shadow-[0_0_8px_rgba(234,179,8,0.5)]"><FaJsSquare className="text-yellow-400" title="JavaScript" /></motion.div>
+                                <motion.div whileHover={{ scale: 1.2, y: -5, rotate: -10 }} className="cursor-pointer transition-shadow hover:drop-shadow-[0_0_8px_rgba(34,197,94,0.5)]"><FaNodeJs className="text-green-500" title="Node.js" /></motion.div>
+                                <motion.div whileHover={{ scale: 1.2, y: -5, rotate: 10 }} className="cursor-pointer transition-shadow hover:drop-shadow-[0_0_8px_rgba(29,78,216,0.5)]"><SiMysql className="text-blue-600" title="MySQL" /></motion.div>
+                                <motion.div whileHover={{ scale: 1.2, y: -5, rotate: -10 }} className="cursor-pointer transition-shadow hover:drop-shadow-[0_0_8px_rgba(249,115,22,0.5)]"><FaGitAlt className="text-orange-500" title="Git" /></motion.div>
                             </div>
                         </motion.div>
 
@@ -151,7 +151,7 @@ const About = () => {
                             className="grid grid-cols-2 gap-6"
                         >
                             <div className="bg-white/80 dark:bg-gray-900/70 backdrop-blur-xl rounded-3xl p-6 shadow-lg border border-gray-200/30 dark:border-gray-800/30">
-                                <Code2 className="text-blue-600 mb-3" />
+                                <Code2 className="text-cyan-500 mb-3" />
                                 <h3 className="text-2xl font-bold">
                                     <Counter value={3} suffix="+" trigger={animate} />
                                 </h3>

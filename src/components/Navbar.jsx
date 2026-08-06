@@ -6,13 +6,22 @@ const sections = ["home", "about", "skills", "projects", "contact"]
 
 const Navbar = () => {
     const [isOpen, setIsOpen] = useState(false)
-    const [darkMode, setDarkMode] = useState(false)
+    const [darkMode, setDarkMode] = useState(() => {
+        const saved = localStorage.getItem("theme");
+        return saved ? saved === "dark" : true;
+    })
     const [active, setActive] = useState("home")
     const menuRef = useRef(null)
 
     /* DARK MODE */
     useEffect(() => {
-        document.documentElement.classList.toggle("dark", darkMode)
+        if (darkMode) {
+            document.documentElement.classList.add("dark")
+            localStorage.setItem("theme", "dark")
+        } else {
+            document.documentElement.classList.remove("dark")
+            localStorage.setItem("theme", "light")
+        }
     }, [darkMode])
 
     /* LOCK SCROLL WHEN MENU OPEN */
@@ -57,9 +66,10 @@ const Navbar = () => {
     return (
         <nav className="
       fixed top-0 w-full z-[999]
-      bg-white/80 dark:bg-[#0B1020]/80
+      bg-white/70 dark:bg-[#0B1120]/75
       backdrop-blur-xl
-      border-b border-slate-200/50 dark:border-white/10
+      border-b border-slate-200/50 dark:border-white/5
+      shadow-sm dark:shadow-[0_4px_30px_rgba(0,0,0,0.5)]
     ">
             <div className="max-w-7xl mx-auto px-4 md:px-6 h-[72px] flex items-center justify-between">
 
@@ -68,7 +78,7 @@ const Navbar = () => {
                     onClick={() => handleScroll("home")}
                     className="
             text-xl md:text-2xl font-extrabold cursor-pointer
-            bg-gradient-to-r from-blue-600 via-indigo-500 to-purple-600
+            bg-gradient-to-r from-cyan-400 to-teal-500
             bg-clip-text text-transparent
           "
                 >
@@ -83,10 +93,10 @@ const Navbar = () => {
                             onClick={() => handleScroll(item)}
                             className={`relative cursor-pointer transition-all
                 ${active === item
-                                    ? "text-blue-600 dark:text-purple-400 after:w-full"
-                                    : "hover:text-blue-500 dark:hover:text-purple-300"}
+                                    ? "text-cyan-500 dark:text-cyan-400 after:w-full"
+                                    : "hover:text-cyan-500 dark:hover:text-cyan-300"}
                 after:absolute after:-bottom-1 after:left-0 after:h-[2px]
-                after:bg-gradient-to-r after:from-blue-500 after:to-purple-500
+                after:bg-gradient-to-r after:from-cyan-400 after:to-teal-500
                 after:w-0 after:transition-all`}
                         >
                             {item.charAt(0).toUpperCase() + item.slice(1)}

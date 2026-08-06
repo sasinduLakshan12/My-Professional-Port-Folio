@@ -45,8 +45,8 @@ const Contact = () => {
             id="contact"
             className="
         relative py-28 overflow-hidden
-        bg-gradient-to-b from-gray-100 via-white to-gray-100
-        dark:from-gray-950 dark:via-gray-900 dark:to-gray-950
+        bg-gradient-to-b from-slate-50 via-white to-slate-100
+        dark:from-[#0B1530] dark:via-[#090F26] dark:to-[#070B19]
       "
         >
             {/* BACKGROUND GLOW */}
@@ -59,21 +59,21 @@ const Contact = () => {
                     viewport={{ once: true }}
                     transition={{ duration: 0.6 }}
                     className="
-            bg-white/70 dark:bg-gray-900/70
+            bg-white/70 dark:bg-slate-900/40
             backdrop-blur-xl
             rounded-3xl
-            border border-gray-200/50 dark:border-gray-800
+            border border-slate-200/50 dark:border-white/5
             shadow-2xl
             p-6 md:p-10
           "
                 >
                     {/* HEADER */}
                     <div className="text-center mb-14">
-                        <p className="text-sm uppercase tracking-widest text-blue-600 font-semibold">
+                        <p className="text-sm uppercase tracking-widest text-cyan-500 font-semibold">
                             Contact
                         </p>
                         <h2 className="text-4xl font-extrabold mt-2">
-                            Get In <span className="text-blue-600">Touch</span>
+                            Get In <span className="text-cyan-500">Touch</span>
                         </h2>
                         <p className="text-gray-600 dark:text-gray-400 mt-3 max-w-xl mx-auto">
                             Let’s connect and build something meaningful together.
@@ -96,7 +96,7 @@ const Contact = () => {
                   overflow-hidden
                 "
                             >
-                                <div className="p-3 md:p-4 bg-blue-600 text-white rounded-xl flex-shrink-0">
+                                <div className="p-3 md:p-4 bg-cyan-500 text-slate-900 rounded-xl flex-shrink-0">
                                     <Mail />
                                 </div>
                                 <div className="min-w-0">
@@ -164,8 +164,11 @@ const Contact = () => {
                                 placeholder="Your Name"
                                 className="
                   w-full px-4 py-3 rounded-xl
-                  bg-gray-100 dark:bg-gray-800
-                  focus:outline-none focus:ring-2 focus:ring-blue-500
+                  bg-gray-100 dark:bg-[#0B1530]
+                  border border-slate-200/50 dark:border-white/5
+                  text-gray-900 dark:text-white
+                  focus:outline-none focus:ring-2 focus:ring-cyan-500/50 dark:focus:border-cyan-500/50
+                  transition duration-200
                 "
                                 required
                             />
@@ -176,8 +179,11 @@ const Contact = () => {
                                 placeholder="Your Email"
                                 className="
                   w-full px-4 py-3 rounded-xl
-                  bg-gray-100 dark:bg-gray-800
-                  focus:outline-none focus:ring-2 focus:ring-blue-500
+                  bg-gray-100 dark:bg-[#0B1530]
+                  border border-slate-200/50 dark:border-white/5
+                  text-gray-900 dark:text-white
+                  focus:outline-none focus:ring-2 focus:ring-cyan-500/50 dark:focus:border-cyan-500/50
+                  transition duration-200
                 "
                                 required
                             />
@@ -188,8 +194,11 @@ const Contact = () => {
                                 rows="5"
                                 className="
                   w-full px-4 py-3 rounded-xl
-                  bg-gray-100 dark:bg-gray-800
-                  focus:outline-none focus:ring-2 focus:ring-blue-500
+                  bg-gray-100 dark:bg-[#0B1530]
+                  border border-slate-200/50 dark:border-white/5
+                  text-gray-900 dark:text-white
+                  focus:outline-none focus:ring-2 focus:ring-cyan-500/50 dark:focus:border-cyan-500/50
+                  transition duration-200
                 "
                                 required
                             />
@@ -199,10 +208,9 @@ const Contact = () => {
                                 disabled={isSubmitting}
                                 className={`
                   w-full inline-flex items-center justify-center gap-2
-                  ${isSubmitting ? 'bg-blue-400 cursor-not-allowed' : 'bg-blue-600 hover:bg-blue-700 hover:scale-[1.02]'}
-                  text-white font-medium
+                  ${isSubmitting ? 'bg-cyan-600/50 cursor-not-allowed text-slate-800' : 'bg-cyan-500 hover:bg-cyan-400 hover:scale-[1.02] text-slate-900 font-bold'}
                   py-3 rounded-xl
-                  shadow-lg shadow-blue-600/30
+                  shadow-lg shadow-cyan-500/20
                   transition
                 `}
                             >

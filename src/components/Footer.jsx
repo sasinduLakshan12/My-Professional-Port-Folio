@@ -33,10 +33,8 @@ const Footer = () => {
           fixed bottom-5 right-5 md:bottom-10 md:right-10 z-[999]
           inline-flex items-center gap-2
           px-4 py-2 md:px-6 md:py-3 rounded-full
-          bg-gradient-to-r from-blue-600 to-purple-600
-          text-white font-semibold text-sm md:text-base
-          shadow-lg shadow-blue-600/30
-          hover:shadow-purple-600/40
+          bg-cyan-500 text-slate-900 font-bold text-sm md:text-base
+          shadow-lg shadow-cyan-500/20
           hover:scale-110 transition-all duration-300
         "
             >
@@ -52,8 +50,8 @@ const Footer = () => {
                 viewport={{ once: true }}
                 className="
           relative overflow-hidden
-          bg-gray-50 dark:bg-gray-950
-          border-t border-gray-200 dark:border-gray-800
+          bg-slate-50 dark:bg-[#070B19]
+          border-t border-slate-200/50 dark:border-white/5
         "
             >
                 {/* DOT GRID */}
@@ -77,7 +75,7 @@ const Footer = () => {
 
                         {/* BRAND */}
                         <div className="space-y-4 text-center md:text-left">
-                            <h3 className="text-2xl font-bold bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">
+                            <h3 className="text-2xl font-bold bg-gradient-to-r from-cyan-400 to-teal-500 bg-clip-text text-transparent">
                                 Sasindu Lakshan
                             </h3>
                             <p className="text-sm leading-relaxed text-gray-600 dark:text-gray-400 max-w-sm mx-auto md:mx-0">
@@ -86,7 +84,7 @@ const Footer = () => {
 
                             {/* UNIVERSITY */}
                             <div className="flex items-center justify-center md:justify-start gap-3 text-gray-700 dark:text-gray-300 font-medium">
-                                <GraduationCap size={22} className="text-blue-600" />
+                                <GraduationCap size={22} className="text-cyan-500" />
                                 <span>University of Vavuniya</span>
                             </div>
 
@@ -94,10 +92,10 @@ const Footer = () => {
 
                         {/* QUICK LINKS */}
                         <nav className="flex flex-wrap justify-center md:justify-start gap-6 md:gap-10 text-sm font-medium text-gray-600 dark:text-gray-400">
-                            <a href="#home" className="hover:text-blue-600 transition">Home</a>
-                            <a href="#about" className="hover:text-blue-600 transition">About</a>
-                            <a href="#projects" className="hover:text-blue-600 transition">Projects</a>
-                            <a href="#contact" className="hover:text-blue-600 transition">Contact</a>
+                            <a href="#home" className="hover:text-cyan-500 transition">Home</a>
+                            <a href="#about" className="hover:text-cyan-500 transition">About</a>
+                            <a href="#projects" className="hover:text-cyan-500 transition">Projects</a>
+                            <a href="#contact" className="hover:text-cyan-500 transition">Contact</a>
                         </nav>
 
                         {/* CONTACT + SOCIAL */}
@@ -145,7 +143,7 @@ const Footer = () => {
                                     whileHover="hover"
                                     href="https://linkedin.com/"
                                     target="_blank"
-                                    className="hover:text-blue-600"
+                                    className="hover:text-cyan-400"
                                 >
                                     <Linkedin />
                                 </motion.a>
